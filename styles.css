@@ -11,7 +11,7 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 html {
@@ -29,15 +29,14 @@ body {
 }
 
 header,
-main,
-footer {
+main {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
 }
 
 header {
-    background-image: url(Public/heroImg.JPEG);
+    background-image: url(Public/heroImg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -58,6 +57,7 @@ nav {
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     z-index: 10;
+    /* box-shadow: 0 0 5px 1px black; */
 
 }
 
@@ -68,6 +68,15 @@ nav>a {
     text-shadow: 1px 1px rgb(100, 100, 100);
     transition-delay: 100ms;
     position: relative;
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+    opacity: .1;
+    box-shadow: 0 0 5px 2px black;
 }
 
 nav>a:visited {
@@ -82,22 +91,13 @@ nav>a:hover {
     transition-delay: 100ms;
 }
 
-.sticky::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: transparent;
-    opacity: .1;
-    box-shadow: 0 0 5px 2px black;
-}
-
 .heroText {
     font-size: 0.9rem;
     display: flex;
     flex-direction: column;
     text-align: center;
     position: absolute;
-    top: 25%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 14px;
@@ -110,9 +110,13 @@ nav>a:hover {
     box-shadow: 0 0 4px 1px black;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
-    z-index: 2;
+    z-index: 3;
     color: #a0785a;
 
+}
+
+.heroText h1 {
+    font-size: 1.5rem;
 }
 
 .heroText::after {
@@ -157,13 +161,24 @@ nav>a:hover {
     padding: .75rem;
 }
 
-.overview-title,
-.gallery-title {
+.title {
     font-size: 1.1rem;
     text-transform: uppercase;
     padding-top: 48px;
     padding-bottom: 12px;
 }
+
+.title h1 {
+    padding-bottom: 3rem;
+}
+
+.title h2 {
+    font-size: 1.2rem;
+    text-transform: none;
+    color: var(--lighter-color);
+    padding-bottom: 1rem;
+}
+
 
 .first-article {
     display: flex;
@@ -171,11 +186,6 @@ nav>a:hover {
     font-size: 1rem;
     gap: 14px;
     padding-bottom: 14px;
-}
-
-.overview-title h1,
-.gallery-title h1 {
-    padding-bottom: 3rem;
 }
 
 .guest-suite>h2,
@@ -228,23 +238,62 @@ nav>a:hover {
     gap: 30px;
 }
 
-.container {
+.mainframe div {
     aspect-ratio: 14/9;
     overflow: hidden;
     box-shadow: 3px 3px 6px 2px var(--shadow-color);
     border-radius: 5px;
 }
 
-.container img {
+.mainframe div>img {
     object-fit: cover;
     width: 100%;
 }
 
+.map {
+    padding: 2rem 0.75rem;
+}
+
+.map-container {
+    overflow: hidden;
+    box-shadow: 3px 3px 6px 2px var(--shadow-color);
+    border-radius: 5px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.75rem;
+    gap: 1rem;
+    font-size: .9rem;
+    text-align: center;
+    background-color:#c9b499;
+    box-shadow: 0 -1px 5px 1px rgb(70, 70, 70);
+}
+
+.footer-bold {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.footer-link a {
+    color: var(--darker-color);
+    text-decoration: none;
+}
+
+.footer-link a:hover {
+    color: var(--lighter-color);
+}
 
 
 @media (min-width: 786px) {
     .heroText {
         top: 50%;
+    }
+
+    .heroText h1,
+    .heroText h2 {
+        font-size: 2rem;
     }
 
     .first-article {
@@ -272,7 +321,7 @@ nav>a:hover {
     }
 
     .neighborhood>p {
-        line-height: 1.5rem;
+        line-height: 1.8rem;
         font-size: 1.3rem;
     }
 
@@ -291,8 +340,9 @@ nav>a:hover {
     }
 
     .long {
-        display:inline-block;
+        display: inline-block;
     }
+
     #one {
         order: 1;
     }
@@ -308,18 +358,17 @@ nav>a:hover {
         align-items: center;
     }
 
-    .container img {
+    .mainframe div>img {
         max-width: 550px;
         object-fit: cover;
     }
 
-    .container {
+    .mainframe div {
         aspect-ratio: 14/9;
         overflow: hidden;
         box-shadow: 2px 2px 3px 1px var(--shadow-color);
         border-radius: 5px;
         min-width: 450px;
     }
-
 
 }

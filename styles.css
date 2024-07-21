@@ -276,12 +276,12 @@ footer {
     text-transform: uppercase;
 }
 
-.footer-link a {
+.footer-link {
     color: var(--darker-color);
     text-decoration: none;
 }
 
-.footer-link a:hover {
+.footer-link:hover {
     color: var(--lighter-color);
 }
 
